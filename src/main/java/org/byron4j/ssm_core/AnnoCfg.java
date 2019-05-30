@@ -13,11 +13,11 @@ import lombok.ToString;
 
 /**
  * Hello world!
- *
+ * 基于JAVA注解的IOC容器
  */
 @Configuration
 @PropertySource("classpath:App.properties")
-public class App {
+public class AnnoCfg {
 
     @Autowired
     Environment env;
@@ -38,7 +38,7 @@ public class App {
     
     public static void main(String[] args) {
 		AnnotationConfigApplicationContext annotationConfigApplicationContext
-		 	= new AnnotationConfigApplicationContext(App.class);
-		System.out.println(annotationConfigApplicationContext.getBean(App.class).testBean());
+		 	= new AnnotationConfigApplicationContext(AnnoCfg.class);
+		System.out.println(annotationConfigApplicationContext.getBean(AnnoCfg.class).testBean());
 	}
 }
