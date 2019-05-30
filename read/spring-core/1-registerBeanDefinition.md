@@ -213,6 +213,60 @@ this.earlyApplicationEvents = new LinkedHashSet<>(); // 创建早期的应用事
 	}
 ```
 
+### 4. 在上下文子类中可以对bean工厂进行后续处理
+
+```
+postProcessBeanFactory(beanFactory);
+```
+
+
+### 5. 调用bean工厂后续处理器
+
+```
+invokeBeanFactoryPostProcessors(beanFactory);
+```
+
+### 6. 注册[拦截bean创建]的后续处理器
+
+```
+registerBeanPostProcessors(beanFactory);
+```
+
+### 7. 初始化此上下文的消息源
+
+```
+initMessageSource();
+```
+
+### 8. 初始化此上下文的时间广播
+
+```
+initApplicationEventMulticaster();
+```
+
+### 9. 上下文子类中初始化其他特殊bean
+
+```
+onRefresh();
+```
+
+### 10. 检查监听器bean并注册它们
+
+```
+registerListeners();
+```
+
+### 11. 初始化所有的剩余的非懒加载的单例bean
+
+```
+finishBeanFactoryInitialization(beanFactory);
+```
+
+### 12. 发布对应的事件
+
+```
+finishRefresh();
+```
 
 ## 获取getBean
 
@@ -233,7 +287,7 @@ protected void assertBeanFactoryActive() {
 }
 ```
 
-### getBean
+## 获取bean：getBean
 
 DefaultListableBeanFactory.getBean(String beanName) --> 逻辑是由抽象工厂实现的：
 
@@ -252,10 +306,12 @@ final String beanName = transformedBeanName(name);
 - 检查单例缓存中是否存在
 
 **singletonObjects** : 单例对象的缓存：beanName --》 instance
+
 **earlySingletonObjects**: 早期单例对象的缓存： beanName --》 instance
+
 **singletonFactories**: 单例工厂的缓存：bean name --》ObjectFactory 
 
->先后先单例缓存**singletonObjects**中查找，找到即返回;
+>先在单例缓存 **singletonObjects** 中查找，找到即返回;
 >
 >单例缓存中不存在且正在并发地创建中的话，则从早期单例缓存中**earlySingletonObjects**查找，找到即返回;
 >
