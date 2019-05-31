@@ -6,10 +6,10 @@
 
     <!-- services -->
 
-    <bean id="petStore" class="org.byron4j.ssm_core.xmlcfg.service.PetStoreServiceImpl">
-        <property name="accountDao" ref="accountDao"/>
-        <property name="itemDao" ref="itemDao"/>
-        <!-- additional collaborators and configuration for this bean go here -->
+    <bean id="clientService" class="org.byron4j.ssm_core.instantiationform.ClientService"
+    	factory-method="staticInstation"
+    >
+        
     </bean>
 
     <!-- more bean definitions for services go here -->
