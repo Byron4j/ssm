@@ -20,7 +20,8 @@ public class DefaultListableBeanFactoryDemo {
 		}
 		
 		System.out.println(context.getBean("demo"));
-		
+	
+		context.close();
 	}
 	
 	private AccountDao accountDao;
