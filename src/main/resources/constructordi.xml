@@ -4,7 +4,7 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 
-
+	<!-- 构造器注入 -->
 	
     <bean id="thingTwo" class="org.byron4j.ssm_core.constructordi.ThingTwo" />
     <bean id="thinghree" class="org.byron4j.ssm_core.constructordi.ThingThree" />
