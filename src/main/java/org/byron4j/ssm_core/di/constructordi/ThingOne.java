@@ -1,4 +1,4 @@
-package org.byron4j.ssm_core.constructordi;
+package org.byron4j.ssm_core.di.constructordi;
 
 public class ThingOne {
 	public ThingOne(ThingTwo thingTwo, ThingThree thingThree) {

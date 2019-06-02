@@ -1,4 +1,4 @@
-package org.byron4j.ssm_core.constructordi;
+package org.byron4j.ssm_core.di.constructordi;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

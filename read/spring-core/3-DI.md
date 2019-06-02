@@ -150,8 +150,99 @@ Spring官方建议：
 
 ### 直接值（基本类型、String等其它）
 
-``<property/>`` 元素的 ``value`` 属性
+#### 基本类型
+
+``<property/>`` 元素的 ``value`` 属性指定了一个属性或者构造器的参数。Spring的[转换服务](https://docs.spring.io/spring/docs/5.1.7.RELEASE/spring-framework-reference/core.html#core-convert-ConversionService-API) 会将这些属性的value从String转换为属性或者构造器参数的真实类型。
+
+以下是一个实例, 定义了一个类型为org.apache.commons.dbcp.BasicDataSource的myDataSource的bean，并且使用 ``property`` 元素的 ``value`` 属性将其相关属性字段进行了赋值。
+
+```xml
+<bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+    <!-- results in a setDriverClassName(String) call -->
+    <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+    <property name="url" value="jdbc:mysql://localhost:3306/mydb"/>
+    <property name="username" value="root"/>
+    <property name="password" value="masterkaoli"/>
+</bean>
+```
+
+等同于使用[p命名空间](https://docs.spring.io/spring/docs/5.1.7.RELEASE/spring-framework-reference/core.html#beans-p-namespace)的更简洁的方式：
+
+```xml
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource"
+        destroy-method="close"
+        p:driverClassName="com.mysql.jdbc.Driver"
+        p:url="jdbc:mysql://localhost:3306/mydb"
+        p:username="root"
+        p:password="masterkaoli"/>
+
+</beans>
+```
 
 
+#### java.util.Properties类型注入
+
+Spring容器通过使用javabean PropertyEditor机制实现将``<value/>``元素中的文本转换为java.util.Properties。关联类：PropertyEditorRegistrySupport
+
+- xml配置
+
+```xml
+<bean id="propertiesDi" class = "org.byron4j.ssm_core.di.didetails.PropertiesDi">
+	<property name="properties">
+        <value>
+            jdbc.driver.className=com.mysql.jdbc.Driver
+            jdbc.url=jdbc:mysql://localhost:3306/mydb
+        </value>
+    </property>
+</bean>
+```
+
+- java
+
+```java
+package org.byron4j.ssm_core.di.didetails;
+
+import java.util.Properties;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import lombok.Setter;
+
+@Setter
+public class PropertiesDi {
+	
+	private Properties properties;
+	
+	public static void main(String[] args) {
+		ApplicationContext applicationContext = 
+				new ClassPathXmlApplicationContext("didetails/didetails.xml");
+		applicationContext.getBean(PropertiesDi.class).properties.entrySet().forEach(ele -> {System.out.println(ele);});
+		
+	}
+}
+
+```
+
+
+#### idref 元素
+
+idref元素传递bean的id作为另一个bean的``<constructor-arg/> ``或者``<property/>``的引用。
+
+```xml
+<bean id="theTargetBean" class="..."/>
+
+<bean id="theClientBean" class="...">
+    <property name="targetName">
+        <idref bean="theTargetBean"/>
+    </property>
+</bean>
+```
 
 

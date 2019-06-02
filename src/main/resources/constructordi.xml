@@ -6,17 +6,17 @@
 
 	<!-- 构造器注入 -->
 	
-    <bean id="thingTwo" class="org.byron4j.ssm_core.constructordi.ThingTwo" />
-    <bean id="thinghree" class="org.byron4j.ssm_core.constructordi.ThingThree" />
+    <bean id="thingTwo" class="org.byron4j.ssm_core.di.constructordi.ThingTwo" />
+    <bean id="thinghree" class="org.byron4j.ssm_core.di.constructordi.ThingThree" />
 
 
-	<bean id="thingone" class="org.byron4j.ssm_core.constructordi.ThingOne">
+	<bean id="thingone" class="org.byron4j.ssm_core.di.constructordi.ThingOne">
 		<constructor-arg ref="thingTwo"></constructor-arg>
 		<constructor-arg ref="thinghree"></constructor-arg>
 	</bean>
 	
 	
-	<bean id="constructordiWithType" class="org.byron4j.ssm_core.constructordi.ConstructordiWithType">
+	<bean id="constructordiWithType" class="org.byron4j.ssm_core.di.constructordi.ConstructordiWithType">
 		<constructor-arg type="String" value="Byron"/>
 		<constructor-arg name="age" value="20"/>
 		<constructor-arg ref="thingone"/>
