@@ -26,7 +26,7 @@
 	</bean>
 
 
-	<bean id="propertiesDi" class = "org.byron4j.ssm_core.di.didetails.PropertiesDi">
+	<bean id="propertiesDi" class = "org.byron4j.ssm_core.spring_core.di.didetails.PropertiesDi">
 		<property name="properties">
 	        <value>
 	            jdbc.driver.className=com.mysql.jdbc.Driver

@@ -5,11 +5,11 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="accountDao"
-        class="org.byron4j.ssm_core.xmlcfg.dao.AccountDao">
+        class="org.byron4j.ssm_core.spring_core.xmlcfg.dao.AccountDao">
         <!-- additional collaborators and configuration for this bean go here -->
     </bean>
 
-    <bean id="itemDao" class="org.byron4j.ssm_core.xmlcfg.dao.ItemDao">
+    <bean id="itemDao" class="org.byron4j.ssm_core.spring_core.xmlcfg.dao.ItemDao">
         <!-- additional collaborators and configuration for this bean go here -->
     </bean>
 

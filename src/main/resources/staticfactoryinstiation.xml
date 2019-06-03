@@ -6,7 +6,7 @@
 
     <!-- services -->
 
-    <bean id="clientService" class="org.byron4j.ssm_core.instantiationform.ClientService"
+    <bean id="clientService" class="org.byron4j.ssm_core.spring_core.instantiationform.ClientService"
     	factory-method="staticInstation"
     >
         

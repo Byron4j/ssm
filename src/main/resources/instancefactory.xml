@@ -6,7 +6,7 @@
 
 
 	<!-- 定义基础bean -->
-    <bean id="bookStore" class="org.byron4j.ssm_core.instantiationform.BookStore" />
+    <bean id="bookStore" class="org.byron4j.ssm_core.spring_core.instantiationform.BookStore" />
 
 	<!-- 通过实例方法实例化bean -->
     <bean id="book" factory-bean="bookStore" factory-method="acquireBook"/>

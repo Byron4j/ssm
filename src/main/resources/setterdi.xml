@@ -6,7 +6,7 @@
 
 	<!-- setter注入 -->
 	
-    <bean id = "setterDiEmployee"  class = "org.byron4j.ssm_core.setterdi.SetterDiEmployee">
+    <bean id = "setterDiEmployee"  class = "org.byron4j.ssm_core.spring_core.setterdi.SetterDiEmployee">
     	<property name="address" ref = "setterDiAddress"></property>
     	
     	<property name="dept">
@@ -16,9 +16,9 @@
     	<property name="age" value="18"></property>
     </bean>
     
-    <bean id = "setterDiAddress" class = "org.byron4j.ssm_core.setterdi.SetterDiAddress"></bean>
+    <bean id = "setterDiAddress" class = "org.byron4j.ssm_core.spring_core.setterdi.SetterDiAddress"></bean>
     
-    <bean id = "setterDiDept" class = "org.byron4j.ssm_core.setterdi.SetterDiDept"></bean>
+    <bean id = "setterDiDept" class = "org.byron4j.ssm_core.spring_core.setterdi.SetterDiDept"></bean>
 	
 
 </beans>
