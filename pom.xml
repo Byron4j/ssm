@@ -13,6 +13,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+  
 
   <dependencies>
     <dependency>
@@ -72,8 +73,13 @@
 	    <version>2.4</version>
 	    <classifier>jdk15</classifier>
     </dependency>
-	
-	
+
+
+	<dependency>
+		<groupId>org.apache.shardingsphere</groupId>
+		<artifactId>sharding-jdbc-core</artifactId>
+		<version>4.0.0-RC1</version>
+	</dependency>
   </dependencies>
   
   <build>
