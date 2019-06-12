@@ -17,7 +17,7 @@
 	
 	
 	<bean id="constructordiWithType" class="org.byron4j.ssm_core.spring_core.di.constructordi.ConstructordiWithType">
-		<constructor-arg type="String" value="Byron"/>
+		<constructor-arg type="java.lang.String" value="Byron"/>
 		<constructor-arg name="age" value="20"/>
 		<constructor-arg ref="thingone"/>
 	</bean>
