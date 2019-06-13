@@ -748,3 +748,11 @@ something这个bean的属性fred，fred的属性bob，bob的属性sammy被设置
 
 你可以通过bean名称的模式匹配来限制自动装配候选。顶级的```<beans/>```元素接收一个或者多个模式，在```default-autowire-candidate```属性中配置。
 例如，限制name以Repository结尾的bean的自动装配的候选状态，可以使用 Repository。为了定义多个模式，在一个逗号分隔的列表中定义。
+bean定义的autowire-candidate属性的显式值true或false总是优先，对于这样的bean，不会应用模式匹配规则。
+
+当你不想通过自动装配注入到另外的bean时，这些技术点是非常有用的。这并不是意味着被排除的bean本身不能被配置使用自动装配。相反，bean本身不是装配其它bean的候选对象。
+
+## 方法注入
+
+在大都数应用场景中，容器中的bean大都数都是单例的。
+当一个单例bean
